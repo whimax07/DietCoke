@@ -1,0 +1,15 @@
+
+
+1) A good place to start looking for what you want (aka a wiki)
+    https://effbot.org/tkinterbook/
+
+2) This is an answer looking at how you can change the size of tabs. Probs will help change text size to.
+    https://stackoverflow.com/questions/54211530/how-can-i-change-the-size-of-tab-caption-box-and-font-of-ttk-notebook-tabs
+
+3) Plotting is weird af.
+    https://stackoverflow.com/questions/49240453/tkinter-embedded-graph-changing-plot-axes
+
+4)  These 2 docs seem like good examples
+    https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
+    https://pythonprogramming.net/how-to-embed-matplotlib-graph-tkinter-gui/
+

@@ -32,7 +32,13 @@ class Window(Frame):
         self.TopFrame.grid(column = 0, row = 0, columnspan = 3, sticky = 'new')
 
         self.BottomFrame = Frame(self.master, bg = mainBG, width = 600, height = 250)
-        self.BottomFrame.grid(column = 0, row = 2, columnspan = 3, sticky = 'sew')
+        self.BottomFrame.grid(column = 0, row = 3, columnspan = 3, sticky = 'sew')
+
+        self.hexStr = StringVar(self.BottomFrame)
+        self.hexStr.set(self.rgb2Hex(startColour))
+        self.hexLabel = Label(self.master, text=self.hexStr.get(),
+                              background=self.hexStr.get())
+        self.hexLabel.grid(column = 1, row = 3)
         
         # Args: X postion, Slider BG colour, _, _, Starting value
         self.RFrame, self.R, self.RText = self.ColourSectionBuilder(0, redBG, ABCol, white, startColour[0])
@@ -43,7 +49,7 @@ class Window(Frame):
     def ColourSectionBuilder(self, xPosIndex, BGColour, ABCol, white, startVal):
         ## The frame
         cBox = Frame(self.master, bg = white)
-        cBox.grid(column = xPosIndex, row = 1, padx = 0, pady = 30)
+        cBox.grid(column = xPosIndex, row = 2, padx = 0, pady = 30)
 
         ## Slider
         # C stands for colour
@@ -68,6 +74,7 @@ class Window(Frame):
         # Used by the slider to set the colour of the sample box
         newC = [self.R.get(), self.G.get(), self.B.get()] 
         newC = self.rgb2Hex(newC)
+        self.hexLabel.config(text=newC)
         self.BottomFrame.config(bg = newC) 
 
     def userRGB(self, event, slider, strvar):
