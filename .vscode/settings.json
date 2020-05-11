@@ -3,5 +3,16 @@
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": false,
-    "python.linting.pycodestyleEnabled": true
+    "python.linting.pycodestyleEnabled": true,
+    "cSpell.words": [
+        "strftime"
+    ],
+    "cSpell.ignoreWords": [
+        "cw",
+        "delivery",
+        "h",
+        "manager",
+        "n",
+        "txyewy"
+    ]
 }

@@ -31,6 +31,7 @@ class Window(Frame):
         self.tabGroup.columnconfigure(0, weight=1)
         self.tabGroup.rowconfigure(0, weight=1)
 
+        ###################################################################
         # --- Add the first tab (input).
         self.tab1 = Frame(self.tabGroup)
         self.tabGroup.add(self.tab1, text='Input')
@@ -54,12 +55,12 @@ class Window(Frame):
         self.dd1.config(relief='groove')
         self.dd1.grid(column=1, row=0, sticky='NESW', padx=0, pady=(20, 10))
 
-        # Add a label for the secound drop down.
+        # Add a label for the second drop down.
         self.dd2Label = Label(
             self.tab1, text='Please choose your favorite type of beer:')
         self.dd2Label.grid(column=0, row=1, sticky='w', padx=(0, 10), pady=10)
 
-        # Add the secound drop down.
+        # Add the second drop down.
         dd2List = self.GetList2()
         self.dd2Str = StringVar(self.tab1)
         self.dd2Str.set(dd2List[0])
@@ -75,7 +76,8 @@ class Window(Frame):
         self.runButton.grid(column=0, row=2, columnspan=2, padx=0,
                             pady=(40, 0), ipadx=10, ipady=5)
 
-        # --- Add the secound tab (output).
+        #######################################################################
+        # --- Add the second tab (output).
         self.tab2 = Frame(self.tabGroup)
         self.tabGroup.add(self.tab2, text='Output')
         # Controls the resizing of the graph config controls and the graph it
@@ -139,6 +141,8 @@ class Window(Frame):
         self.canvas.get_tk_widget().grid(column=0, row=0, sticky='nsew')
         self.canvas.draw()
 
+    ###########################################################################
+    # --- Callbacks
     def GetList1(self):
         # Replace with a proper import function.
         cokeList = ['Diet Coke', 'Deit Pepsi', "Aldi's Diet Cola"]
@@ -167,7 +171,7 @@ class Window(Frame):
         return yAxisList
 
     def Plotter(self):
-        # This is the function that excutens (is called) when the plot button
+        # This is the function that executers (is called) when the plot button
         # is pushed.
         self.temp += 1
         line = [self.temp, self.temp + 1]
