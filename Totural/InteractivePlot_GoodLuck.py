@@ -20,7 +20,6 @@ s = sin(2*pi*t)
 
 a.plot(t, s)
 
-# a tk.DrawingArea
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas.draw()
 canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
