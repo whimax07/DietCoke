@@ -104,7 +104,8 @@ class ColourSliders(Frame):
     #########################################################################
     # --- Callbacks
     def ColorChange(self, x):
-        # Used by the slider to set the colour of the sample box
+        # x is event data that we don't need here.
+        # Used by the slider to set the colour of the sample box.
         newC = [window.redSlider.C.get(), window.greenSlider.C.get(),
                 window.blueSlider.C.get()]
         newC = window.rgb2Hex(newC)
