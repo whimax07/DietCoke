@@ -14,24 +14,35 @@ image = Image.open(
 # Convert it to a RGB array.
 data = np.asarray(image)
 
-# Get a slice of the image.
-image2 = data[500:650, 380:490, :]
-simg2 = np.shape(image2)
-image3 = np.zeros([simg2[0] * 2, simg2[1] * 2, simg2[2]], dtype='uint8')
+# Define the scaling factor
+scaleFactor = (5, 5)
 
-# Make image3 twice as big as image2.
+# Get a slice of the image.
+image2 = data
+simg2 = np.shape(image2)
+image3 = np.zeros([simg2[0] * scaleFactor[0], simg2[1] * scaleFactor[1],
+                  simg2[2]], dtype='uint8')
+
+# Make image3 scaleFactor as big as image2.
 for i in range(simg2[0]):
     for j in range(simg2[1]):
-        image3[(2 * i, 2 * j)] = image2[(i, j)]
-        image3[(2 * i + 1, 2 * j)] = image2[(i, j)]
-        image3[(2 * i, 2 * j + 1)] = image2[(i, j)]
-        image3[(2 * i + 1, 2 * j + 1)] = image2[(i, j)]
+        Ith = scaleFactor[0] * i
+        Jth = scaleFactor[1] * j
+        if np.sum(image2[(i, j)]) < 105:
+            image3[Ith:Ith + scaleFactor[0], Jth:Jth + scaleFactor[1], :] = \
+                (0, 0, 0)
+        else:
+            image3[Ith:Ith + scaleFactor[0], Jth:Jth + scaleFactor[1], :] = \
+                image2[i, j, :]
+
 
 # Show the images.
-image2 = Image.fromarray(image2)
-image2.show()
+# image2 = Image.fromarray(image2)
+# image2.show()
+# image2.save('Image2.png')
 image3 = Image.fromarray(image3)
 image3.show()
+image3.save('Image6.png')
 
 # --- Display the colour of a pixel of the image.
 # cb.ColourSwob(cb.rgb2Hex(data[580, 430, :]))

@@ -119,7 +119,7 @@ class ColourSliders(Frame):
             return
         try:
             val = int(val)
-        except:
+        except ValueError:
             print('Error: User input is not a number. (Check for spaces)')
             return
         if val >= 0 and val <= 255:
