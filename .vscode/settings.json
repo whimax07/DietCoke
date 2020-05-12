@@ -5,6 +5,13 @@
     "python.linting.flake8Enabled": false,
     "python.linting.pycodestyleEnabled": true,
     "cSpell.words": [
+        "abspath",
+        "asarray",
+        "colour",
+        "dirname",
+        "os",
+        "palet",
+        "simg",
         "strftime"
     ],
     "cSpell.ignoreWords": [
