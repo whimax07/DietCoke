@@ -14,5 +14,6 @@
         "manager",
         "n",
         "txyewy"
-    ]
+    ],
+    "python.linting.banditEnabled": false
 }

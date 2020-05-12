@@ -97,9 +97,9 @@ class ColourSliders(Frame):
         CText.grid(column=0, row=1)
         # Set a call back when the text entry is clicked away from.
         CText.bind("<FocusOut>", lambda event, slider=self.C,
-                   strvar=strvar: window.userRGB(event, slider, strvar))
+                   strvar=strvar: self.userRGB(event, slider, strvar))
         CText.bind("<Return>", lambda event, slider=self.C,
-                   strvar=strvar: window.userRGB(event, slider, strvar))
+                   strvar=strvar: self.userRGB(event, slider, strvar))
 
     #########################################################################
     # --- Callbacks
@@ -111,6 +111,22 @@ class ColourSliders(Frame):
         newC = window.rgb2Hex(newC)
         window.hexLabel.config(text=newC)
         window.BottomFrame.config(bg=newC)
+
+    def userRGB(self, event, slider, strvar):
+        # Set the slider value based on the number the user inputted
+        val = strvar.get()
+        if val == '':
+            return
+        try:
+            val = int(val)
+        except:
+            print('Error: User input is not a number. (Check for spaces)')
+            return
+        if val >= 0 and val <= 255:
+            slider.set(val)
+            strvar.set('')
+        else:
+            print("The value you enter needs to be between 0 and 255.")
 
 
 root = Tk()

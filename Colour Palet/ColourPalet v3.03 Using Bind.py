@@ -78,14 +78,14 @@ class Window(Frame):
         self.BottomFrame.config(bg = newC) 
 
     def userRGB(self, event, slider, strvar):
-        # Set the slider value based on the number the user imputted
+        # Set the slider value based on the number the user inputted
         val = strvar.get()
         if val == '':
             return
         try:
             val = int(val)
         except:
-            print('Error: User imput is not a number. (Check for spaces)')
+            print('Error: User input is not a number. (Check for spaces)')
             return
         if val >= 0 and val <= 255:
             slider.set(val)
