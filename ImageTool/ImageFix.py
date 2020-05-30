@@ -42,7 +42,7 @@ for i in range(simg2[0]):
 # image2.save('Image2.png')
 image3 = Image.fromarray(image3)
 image3.show()
-image3.save('Image6.png')
+# image3.save('Image6.png')
 
 # --- Display the colour of a pixel of the image.
 # cb.ColourSwob(cb.rgb2Hex(data[580, 430, :]))

@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "C:\\Users\\Max\\Anaconda3\\python.exe",
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true,
+    "cSpell.words": [
+        "c",
+        "c cyles",
+        "cyles"
+    ]
+}
