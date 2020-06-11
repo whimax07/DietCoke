@@ -1,0 +1,34 @@
+
+def rgb2RGB(self, rgb1):
+    rgb255 = [round(i * 255) for i in rgb1]
+    return rgb255
+
+
+def rgb2Hex(self, rgb1):
+    rgb255 = [round(i * 255) for i in rgb1]
+    val = [hex(i) for i in rgb255]
+    Hex = '#'
+    for i in val:
+        i = i[2:]
+        Hex = Hex + '{:0>2}'.format(i)
+    return Hex
+
+    
+def RGB2rgb(self, rgb255):
+    rgb1 = [i / 255 for i in rgb255]
+    return rgb1
+
+
+def Hex2RGB(self, Hex):
+    Hex = Hex[1:]
+    rgb255 = [0, 0, 0]
+    for i in range(3):
+        val = Hex[i * 2 : i * 2 + 1]
+        rgb255[i] = int(val, 16)
+    return rgb255
+
+
+rgb1 = ['{:.2f}'.format(i).rstrip('0').rstrip('.') for i in rgb1]
+        return '[' + ', '.join(rgb1) + ']'
+
+        

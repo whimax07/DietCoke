@@ -1,0 +1,14 @@
+{
+    "python.pythonPath": "C:\\Users\\Max\\Anaconda3\\python.exe",
+    "cSpell.words": [
+        "argb",
+        "cairocffi",
+        "format",
+        "format argb",
+        "neozhaoliang",
+        "pywonderland",
+        "randt"
+    ],
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true
+}

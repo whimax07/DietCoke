@@ -1,0 +1,12 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": true,
+    "cSpell.words": [
+        "bodnar",
+        "button",
+        "push",
+        "q",
+        "q push button",
+        "zetcode"
+    ]
+}
