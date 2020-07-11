@@ -1,0 +1,5 @@
+json
+encode 'latin1' .decode 'UTF-8' 
+encode 'ASCII' .decode 'unicode-escape' 
+'unicode
+folderwalk

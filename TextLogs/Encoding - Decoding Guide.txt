@@ -1,0 +1,9 @@
+
+Unscrambles Facebook drop
+    .encode('latin1').decode('UTF-8')
+
+To save as json
+    .encode('unicode-escape').decode('ASCII')
+
+To make plain text
+    .encode('ASCII').decode('unicode-escape')

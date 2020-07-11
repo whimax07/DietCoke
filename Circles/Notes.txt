@@ -1,0 +1,16 @@
+1) A way to plot patches of colour.
+    https://stackoverflow.com/questions/9081553/python-scatter-plot-size-and-style-of-the-marker/24567352#24567352
+
+2) This is the GitHub paged linked to by 1.
+    https://gist.github.com/syrte/592a062c562cd2a98a83
+
+3) A cool plot figure.
+    https://matplotlib.org/3.2.1/gallery/event_handling/lasso_demo.html
+
+
+
+
+
+
+
+

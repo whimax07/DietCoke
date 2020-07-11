@@ -1,0 +1,19 @@
+
+
+1) Facebook's text encoding is a bit broken. Look at "Encoding - Decoding Guide.txt" in this dir.
+    https://stackoverflow.com/questions/50008296/facebook-json-badly-encoded
+
+
+2) Facebook uses something called "Epoch Time".
+    https://en.wikipedia.org/wiki/Unix_time
+
+
+3) For a folder traverser.
+    https://stackoverflow.com/questions/229186/os-walk-without-digging-into-directories-below  
+    Note that as it uses yield you need to wrap the function output in something that can use 
+    it as it is made, e.g a for loop (for a, b, c in folderwalk:).
+
+    
+4) GUI based saved and load can be found in "ExampleSaveAndLoad.py".
+
+

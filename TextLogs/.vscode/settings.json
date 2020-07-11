@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "Whitehouse",
+        "json",
+        "latin",
+        "unicode"
+    ],
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true,
+    "cSpell.ignoreWords": [
+        "folderwalk"
+    ]
+}
