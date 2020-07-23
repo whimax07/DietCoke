@@ -3,5 +3,7 @@
         "pylab",
         "xlim",
         "ylim"
-    ]
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": true
 }

@@ -1,15 +1,17 @@
 import json
 import os
 import csv
-from tkinter import Tk
-from tkinter.filedialog import asksaveasfile
 import FacebookHelper as fh
+from ExampleSaveAndLoad import *
 
 
-def main():
+def GetAndSaveTimes(sender_):
+    '''This function has one arg, sender, this can be 'Me', 'All' or name of a
+    person.'''
     mainDir = r"C:\Users\Max\Desktop\Parsed Message Data\Cleaned Inbox"
-    newFileName = r"C:\Users\Max\Desktop\Parsed Message Data" \
-        + r"\Time of messages I have sent.csv"
+    newFileName = csvSave()
+    if newFileName == '':
+        return
 
     # --- Reading.
     times = []
@@ -18,7 +20,7 @@ def main():
             for file in files:
                 baseFolder = os.path.basename(root)
                 inputFile = os.path.join(mainDir, baseFolder, file)
-                temp = getTimes(inputFile)
+                temp = getTimesFromOneJSON(inputFile, sender=sender_)
                 if temp:
                     times.append(temp)
 
@@ -29,18 +31,21 @@ def main():
             wr.writerow(word)
 
 
-def getTimes(inputFile):
-    with open(inputFile) as dataFile:
-        data = dataFile.read()
-        data = json.loads(data)
-
+def getTimesFromOneJSON(inputFile, sender='All'):
+    if sender == 'Me':
+        sender = 'Max Whitehouse'
     times = []
-    for i in range(len(data['messages'])):
-        if 'timestamp_ms' in data['messages'][i]:
-            if data['messages'][i]['sender_name'] == 'Max Whitehouse':
-                times.append(data['messages'][i]['timestamp_ms'])
+    if sender == 'All':
+        for message in fh.getAllMessages(inputFile):
+            times.append(fh.getProperty(message, 'timestamp_ms'))
+    else:
+        for message in fh.getAllMessages(inputFile):
+            if fh.getProperty(message, 'sender_name') == sender:
+                times.append(fh.getProperty(message, 'timestamp_ms'))
     return times
 
 
 if __name__ == "__main__":
-    main()
+    # sender_ can be 'Me', 'All' or name of a person.
+    sender_ = 'Me'
+    GetAndSaveTimes(sender_)

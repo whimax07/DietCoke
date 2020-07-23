@@ -14,7 +14,7 @@ def walklevelaround(some_dir, level):
             del dirs[:]
 
 
-def RetrieveTimes(csvFile):
+def RetrieveSortedTimes(csvFile):
     times = []
     with open(csvFile) as csvFile:
         spamreader = csv.reader(csvFile, delimiter=',')
@@ -24,3 +24,16 @@ def RetrieveTimes(csvFile):
     times = [item for sublist in times for item in sublist]
     times.sort()
     return times
+
+
+def getAllMessages(inputFile):
+    with open(inputFile) as dataFile:
+        data = dataFile.read()
+        data = json.loads(data)
+    for i in range(len(data['messages'])):
+        yield data['messages'][i]
+
+
+def getProperty(message, key='content'):
+    if key in message:
+        return message[key]

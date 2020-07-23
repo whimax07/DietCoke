@@ -1,5 +1,0 @@
-Project Ideas:
-
-Photo Colour Overwriting:
-    Image manipulation with python.
-

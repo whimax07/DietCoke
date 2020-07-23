@@ -92,7 +92,7 @@ class APalletColour(object):
             temp1 = luminace + saturation - luminace * saturation
 
         temp2 = 2 * luminace - temp1
-        tempC = [hue + 1/3 % 1, hue, hue - 1/3 % 1]
+        tempC = [hue + 1/3 % 1, hue, abs(hue - 1/3 % 1)]
 
         out = list()
         for col in tempC:

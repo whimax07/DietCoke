@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "Whitehouse",
+        "asksaveasfilename",
         "json",
         "latin",
         "unicode"
@@ -9,5 +10,6 @@
     "python.linting.enabled": true,
     "cSpell.ignoreWords": [
         "folderwalk"
-    ]
+    ],
+    "python.pythonPath": "C:\\Users\\Max\\Anaconda3\\python.exe"
 }
