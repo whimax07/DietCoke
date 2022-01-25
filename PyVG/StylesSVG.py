@@ -2,8 +2,24 @@ import abc
 from abc import ABC
 
 
-"""This sucks."""
+########################################################################################################################
+############# Attempt 1: Keyword arguments. ############################################################################
+########################################################################################################################
+class RectangleStyles(object):
 
+    def __init__(self):
+        super().__init__()
+        self.style_map: dict[str, str] = {}
+
+    def add_style(self, stroke: str = "green", stroke_width: int = 2, fill: str = "darkgreen"):
+        self.style_map["stroke"] = stroke
+        self.style_map["stroke-width"] = str(stroke_width)
+        self.style_map["fill"] = fill
+
+
+########################################################################################################################
+############## Attempt 2: Using an abstract base class. ################################################################
+########################################################################################################################
 class Style(ABC):
 
     @abc.abstractmethod
@@ -21,7 +37,7 @@ class Fill(Style):
 
 
     def get_style(self) -> str:
-        return "fill=" + self.value
+        return f"fill={self.value}"
 
 
 
@@ -34,15 +50,19 @@ class Stoke(Style):
 
 
     def get_style(self) -> str:
-        return "stoke=" + self.value
+        return f"stoke={self.value}"
 
 
 
+# TODO(Max): You can use a property for self.value to add the greater than or equal to zero validation.
 class StrokeWidth(Style):
 
     def __init__(self):
         super().__init__()
-        self.value: int = 2;
+        self.value: int = 2
+        """Sets the Stroke Width. Use an int greater than or equal to 0."""
 
 
+    def get_style(self) -> str:
+        return f"stroke-width={self.value}"
 
