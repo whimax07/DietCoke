@@ -59,3 +59,4 @@ class Polygon(Shape):
 
     def generate_shape(self) -> str:
         return self.shape
+
