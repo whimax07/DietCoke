@@ -6,7 +6,7 @@ from PyVG.Shapes import Shape
 class BuildSVG(object):
 
     def __init__(self):
-        super()
+        super().__init__()
         self.shapes: list[Shape] = []
         self.body = ""
         self.image: str = ""
@@ -38,7 +38,7 @@ class BuildSVG(object):
 class BaseCSV(object):
 
     def __init__(self):
-        super()
+        super().__init__()
         self.HEIGHT = 200
         self.WIDTH = 200
         self.baseString: str = ""

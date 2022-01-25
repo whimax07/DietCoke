@@ -10,7 +10,6 @@ def main():
                           .add_style("stroke", "blue")  \
                           .add_style("stroke-width", "2")
 
-
     img_builder.add_shape(rect)
     img_builder.generate_image()
     img_builder.write_image_file("TestVG")

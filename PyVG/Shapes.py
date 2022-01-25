@@ -1,4 +1,5 @@
 import abc
+from enum import Enum
 
 
 class Shape(abc.ABC):
@@ -12,7 +13,7 @@ class Shape(abc.ABC):
 class Rectangle(Shape):
 
     def __init__(self) -> None:
-        super()
+        super().__init__()
         self.shape: str = ""
         self.bounds: str = ""
         self.styles: dict[str, str] = {}
@@ -48,6 +49,11 @@ class Rectangle(Shape):
         return self
 
 
+    def add_style2(self, key: str, value: str) -> 'Rectangle':
+        self.styles[key] = value
+        return self
+
+
 
 class Triangle(Shape):
 
@@ -63,7 +69,7 @@ class Triangle(Shape):
 class Polygon(Shape):
 
     def __init__(self) -> None:
-        super()
+        super().__init__()
         self.shape: str = ""
         self.points: list[tuple[int, int]] = []
 
