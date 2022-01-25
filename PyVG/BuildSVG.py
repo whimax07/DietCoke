@@ -29,7 +29,8 @@ class BuildSVG(object):
 
 
     def write_image_file(self, file_name: str) -> None:
-        file: TextIO  = open(file_name + ".svg")
+        """Call :func:`generate_image()` before this method."""
+        file: TextIO  = open(file_name + ".svg", "w")
         file.write(self.image)
 
 
