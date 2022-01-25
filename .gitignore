@@ -1,2 +1,7 @@
-
 .vscode/launch.json
+
+SweetSVG/.idea/
+
+venv/*
+
+__pycache__
