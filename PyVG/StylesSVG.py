@@ -1,5 +1,15 @@
 import abc
 from abc import ABC
+from dataclasses import dataclass
+
+
+@dataclass
+class Styles:
+    stroke: str = "stroke"
+    stroke_width: str = "stroke-width"
+    fill: str = "fill"
+    pattern: str = "pattern"
+
 
 
 ########################################################################################################################
