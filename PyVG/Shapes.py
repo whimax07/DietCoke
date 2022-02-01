@@ -97,7 +97,7 @@ class Polygon(Shape):
 
 
     def __wrap_shape(self) -> None:
-        self.shape = "<polygon " + self.shape + "/>"
+        self.shape = "<polygon " + self.shape + "/>\n"
 
 
 
