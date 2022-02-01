@@ -39,8 +39,8 @@ class BaseCSV(object):
 
     def __init__(self):
         super().__init__()
-        self.HEIGHT = 200
-        self.WIDTH = 200
+        self.HEIGHT = 256
+        self.WIDTH = 256
         self.baseString: str = ""
 
 
