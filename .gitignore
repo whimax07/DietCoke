@@ -5,3 +5,5 @@ SweetSVG/.idea/
 venv/*
 
 __pycache__
+
+*.class
