@@ -1,4 +1,8 @@
+import hashlib
+from pathlib import Path
 from dataclasses import dataclass
+from tkinter import filedialog
+from typing import Union
 
 from PyVG.BuildSVG import BuildSVG
 from PyVG.Shapes import Triangle
@@ -34,12 +38,31 @@ class TrianglePoints:
     concat_total: int
 
 
-def hash_file() -> int:
-    return 0xe2ae1d1492501ee34a4acb4913e3d8f0bf19d5b31498793f5a4cc94ccb542282e508a6c7c64be5cc5850a821f2dcf970760c7c8d9a4935f79ad2cdd097d2219e
+def __hash_file() -> [str, str]:
+    file_path_string = filedialog.askopenfilename()
+
+    if file_path_string is None:
+        print("File selection quit.")
+        exit(1)
+
+    buf_size = 65536
+    sha512 = hashlib.sha3_512()
+
+    with open(file_path_string, 'rb') as file:
+        while True:
+            data = file.read(buf_size)
+            if not data:
+                return sha512.hexdigest(), Path(file_path_string).stem
+            sha512.update(data)
 
 
-def make_list(file_hash: int) -> list[int]:
-    int_str = "{0:0{1}x}".format(file_hash, 512)
+def __make_list(file_hash: Union[int, str]) -> list[int]:
+    int_str: str
+    if isinstance(file_hash, int):
+        int_str = "{0:0{1}x}".format(file_hash, 512)
+    else:
+        int_str = file_hash
+
     number_list = []
     last_c = ""
     for c in int_str:
@@ -52,7 +75,7 @@ def make_list(file_hash: int) -> list[int]:
     return number_list
 
 
-def build_triangle_limits(points: list[int]) -> list[list[int]]:
+def __build_triangle_limits(points: list[int]) -> list[list[int]]:
     tris = []
     tri = []
     for p in points:
@@ -70,7 +93,7 @@ def build_triangle_limits(points: list[int]) -> list[list[int]]:
     return tris
 
 
-def build_triangle_points(bounds: list[list[int]]) -> list[TrianglePoints]:
+def __build_triangle_points(bounds: list[list[int]]) -> list[TrianglePoints]:
     triangles = []
     for limits in bounds:
         tri = [(limits[0], limits[2]), (limits[0], limits[3]), (limits[1], limits[2]), (limits[1], limits[3])]
@@ -80,29 +103,31 @@ def build_triangle_points(bounds: list[list[int]]) -> list[TrianglePoints]:
     return triangles
 
 
-def make_triangles(triangle_points: list[TrianglePoints]) -> BuildSVG:
+def __make_triangles(triangle_points: list[TrianglePoints]) -> BuildSVG:
     img_builder: BuildSVG = BuildSVG()
     for points in triangle_points:
         tri = Triangle().define_shape_tuples(points.point_a, points.point_b, points.point_c)
-        tri.add_style("fill", get_rand_colour(points.concat_total))
+        tri.add_style("fill", __get_rand_colour(points.concat_total))
         img_builder.add_shape(tri)
 
     return img_builder
 
 
-def get_rand_colour(concat_total: int) -> str:
+def __get_rand_colour(concat_total: int) -> str:
     return COLOURS[concat_total % len(COLOURS)]
 
 
 
 def main():
-    file_hash: int = hash_file()
-    points: list[int] = make_list(file_hash)
-    triangle_limits = build_triangle_limits(points)
-    triangle_points = build_triangle_points(triangle_limits)
-    img_builder = make_triangles(triangle_points)
+    file_hash: str
+    file_name: str
+    file_hash, file_name = __hash_file()
+    points: list[int] = __make_list(file_hash)
+    triangle_limits = __build_triangle_limits(points)
+    triangle_points = __build_triangle_points(triangle_limits)
+    img_builder = __make_triangles(triangle_points)
     img_builder.generate_image()
-    img_builder.write_image_file("HashedTriangles")
+    img_builder.write_image_file(file_name + "TriangleHashed")
 
 
 
