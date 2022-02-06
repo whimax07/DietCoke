@@ -8,9 +8,9 @@ public class MakeSVG {
         BaseSVG baseSVG = new BaseSVG();
 
         Polygon triangle = new Polygon()
-                .addPoint(20, 20)
-                .addPoint(130, 40)
-                .addPoint(70, 140);
+                .add_point(20, 20)
+                .add_point(130, 40)
+                .add_point(70, 140);
 
         triangle
                 .addStyleAttribute("fill", "blue")

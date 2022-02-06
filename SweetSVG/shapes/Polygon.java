@@ -10,7 +10,7 @@ public class Polygon extends AbstractShape {
 
 
 
-    public Polygon addPoint(int x, int y) {
+    public Polygon add_point(int x, int y) {
         points.add(new PointI(x, y));
         return this;
     }

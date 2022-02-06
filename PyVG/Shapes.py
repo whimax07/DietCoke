@@ -58,6 +58,22 @@ class Rectangle(Shape):
 
 
 
+class BackgroundRectangle(Shape):
+
+    def __init__(self, background_colour: str = "Orange"):
+        super().__init__()
+        self.background_colour = background_colour
+
+
+    def set_background(self, colour: str):
+        self.background_colour = colour
+
+
+    def generate_shape(self) -> str:
+        return f"<rect width=\"100%\" height=\"100%\" fill=\"{self.background_colour}\" />\n"
+
+
+
 class Polygon(Shape):
 
     def __init__(self) -> None:
