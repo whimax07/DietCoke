@@ -15,9 +15,13 @@ def blue_fg_yellow_bg():
     make_triangle_hash(foreground_colours=BLUES, background_colour="LemonChiffon")
 
 
+def green_fg_grey_bg():
+    make_triangle_hash(foreground_colours=GREENS, background_colour="Gray")
+
+
 
 def main():
-    blue_fg_yellow_bg()
+    make_all_none()
 
 
 if __name__ == '__main__':

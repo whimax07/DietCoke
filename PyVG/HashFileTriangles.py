@@ -87,7 +87,7 @@ def make_triangle_hash(foreground_colours: tuple[str, ...] = ALL_COLOURS, backgr
     file_hash, file_name = __hash_file()
 
     __set_colour_scheme(foreground_colours)
-    points: list[int] = __make_point_list(file_hash)
+    points: list[int] = __split_hash(file_hash)
     triangle_limits = __build_triangle_limits(points)
     triangle_points = __build_triangle_points(triangle_limits)
 
@@ -121,7 +121,7 @@ def __hash_file() -> [str, str]:
             sha512.update(data)
 
 
-def __make_point_list(file_hash: Union[int, str]) -> list[int]:
+def __split_hash(file_hash: Union[int, str]) -> list[int]:
     int_str: str
     if isinstance(file_hash, int):
         int_str = "{0:0{1}x}".format(file_hash, 512)
